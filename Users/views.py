@@ -90,18 +90,18 @@ def email_verification(request):
 def login_user(request):
     username = request.data.get('username')
     email = request.data.get('email')
-    otp = request.data.get('otp')
+    password = request.data.get('password')
     errors = []
     if not email and not username:
         errors.append({"username/email": "Either username or email is required."})
-    if not otp:
-        errors.append({"otp": "This field is required."})
+    if not password:
+        errors.append({"password": "This field is required."})
     if errors:
         return Response({
             'success': False,
             'errors': errors
         }, status=status.HTTP_400_BAD_REQUEST)
-    user = authenticate(username=username, email=email, password=otp)
+    user = authenticate(username=username, email=email, password=password)
     if user is not None:
         refresh = RefreshToken.for_user(user)
         access_token = str(refresh.access_token)

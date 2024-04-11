@@ -31,9 +31,9 @@ This is a RESTful API for user authentication built using Django and Django REST
 
 - **URL:** `/login`
 - **Method:** POST
-- **Description:** Authenticates the user based on email and OTP.
-- **Request Body:** JSON object with `username` or `email` and `otp` fields.
-- **Response:** JSON object with user details and access tokens if authentication is successful, or error message if authentication fails.
+- **Description:** Authenticates the user based on username/email and password.
+- **Request Body:** JSON object with `username` or `email` and `password` fields.
+- **Response:** JSON object with success message and access tokens if authentication is successful, or error message if authentication fails.
 
 ### Forgot Password
 
